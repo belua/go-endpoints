@@ -14,8 +14,6 @@ import (
 	"strings"
 	// Mainly for debug logging
 	"io/ioutil"
-
-	"google.golang.org/appengine/log"
 )
 
 // Server serves registered RPC services using registered codecs.
@@ -135,7 +133,6 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		writeError(w, err)
 		return
 	}
-	log.Debugf(c, "SPI request body: %s", body)
 
 	// if err := json.NewDecoder(r.Body).Decode(req.Interface()); err != nil {
 	// 	writeError(w, fmt.Errorf("Error while decoding JSON: %q", err))
